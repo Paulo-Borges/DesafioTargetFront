@@ -1,1 +1,85 @@
-<p>stock.page works!</p>
+<h2>Movimentação de Estoque</h2>
+ 
+<form [formGroup]="form">
+ 
+<label>Produto</label>
+ 
+<select formControlName="codigoProduto">
+ 
+@for (product of products; track product.codigoProduto) {
+ 
+<option [value]="product.codigoProduto">
+ 
+{{ product.descricaoProduto }}
+ 
+</option>
+ 
+}
+ 
+</select>
+ 
+<br>
+ 
+<label>Tipo</label>
+ 
+<select formControlName="tipo">
+<option value="Entrada">
+Entrada
+</option>
+ 
+<option value="Saida">
+Saída
+</option>
+</select>
+ 
+<br>
+ 
+<label>Quantidade</label>
+ 
+<input
+type="number"
+formControlName="quantidade">
+ 
+<br>
+ 
+<label>Descrição</label>
+ 
+<input
+type="text"
+formControlName="descricao">
+ 
+<br><br>
+ 
+<button
+type="button"
+(click)="save()">
+ 
+Movimentar
+ 
+</button>
+ 
+</form>
+ 
+@if (response) {
+ 
+<hr>
+ 
+<h3>Resultado</h3>
+ 
+<p>
+ID: {{ response.id }}
+</p>
+ 
+<p>
+Produto: {{ response.descricaoProduto }}
+</p>
+ 
+<p>
+Tipo: {{ response.tipo }}
+</p>
+ 
+<p>
+Estoque Final: {{ response.estoqueFinal }}
+</p>
+ 
+}
