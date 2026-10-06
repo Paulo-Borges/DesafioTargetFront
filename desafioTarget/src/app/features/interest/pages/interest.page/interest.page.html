@@ -1,1 +1,61 @@
-<p>interest.page works!</p>
+<h2>Cálculo de Juros</h2>
+ 
+<form [formGroup]="form">
+ 
+<label>
+Valor
+</label>
+ 
+<input
+type="number"
+formControlName="valor">
+ 
+<br><br>
+ 
+<label>
+Data de Vencimento
+</label>
+ 
+<input
+type="date"
+formControlName="dataVencimento">
+ 
+<br><br>
+ 
+<button
+type="button"
+(click)="calculate()">
+ 
+Calcular
+ 
+</button>
+ 
+</form>
+ 
+@if (result) {
+ 
+<hr>
+ 
+<h3>Resultado</h3>
+ 
+<p>
+Valor Original:
+{{ result.valorOriginal | currency:'BRL' }}
+</p>
+ 
+<p>
+Dias de Atraso:
+{{ result.diasAtraso }}
+</p>
+ 
+<p>
+Juros:
+{{ result.juros | currency:'BRL' }}
+</p>
+ 
+<p>
+Valor Total:
+{{ result.valorTotal | currency:'BRL' }}
+</p>
+ 
+}
