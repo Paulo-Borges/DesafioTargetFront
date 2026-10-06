@@ -1,4 +1,6 @@
-<h2>Movimentação de Estoque</h2>
+<main class="bg-amber-200 flex flex-col ">
+
+<h2 class="bg-amber-200 flex flex-col justify-center items-center font-semibold text-xl">Movimentação de Estoque</h2>
  
 <form [formGroup]="form">
  
@@ -51,6 +53,7 @@ formControlName="descricao">
 <br><br>
  
 <button
+class="bg-amber-300 hover:bg-amber-500 px-4 py-2 rounded "
 type="button"
 (click)="save()">
  
@@ -64,7 +67,7 @@ Movimentar
  
 <hr>
  
-<h3>Resultado</h3>
+<h3 class="bg-amber-200 flex flex-col justify-center items-center font-semibold text-xl">Resultado</h3>
  
 <p>
 ID: {{ response.id }}
@@ -83,3 +86,4 @@ Estoque Final: {{ response.estoqueFinal }}
 </p>
  
 }
+</main>
