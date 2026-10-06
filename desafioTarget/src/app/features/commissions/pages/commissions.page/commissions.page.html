@@ -1,1 +1,29 @@
-<p>commissions.page works!</p>
+<h2>Comissões</h2>
+ 
+<p>Total de vendedores: {{ commissions.length }}</p>
+ 
+<table>
+<thead>
+<tr>
+<th>Vendedor</th>
+<th>Comissão</th>
+</tr>
+</thead>
+ 
+<tbody>
+@for (item of commissions; track item.vendedor) {
+<tr>
+<td>{{ item.vendedor }}</td>
+<td>
+{{ item.totalComissao | currency:'BRL':'symbol':'1.2-2' }}
+</td>
+</tr>
+} @empty {
+<tr>
+<td colspan="2">
+Nenhum registro encontrado
+</td>
+</tr>
+}
+</tbody>
+</table>
