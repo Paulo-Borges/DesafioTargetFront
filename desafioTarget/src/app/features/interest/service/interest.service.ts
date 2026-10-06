@@ -17,7 +17,7 @@ private readonly apiUrl =
 'https://localhost:7042/api/Juros';
  
 calculate(
-request: InterestRequest
+request: any
 ): Observable<InterestResponse> {
  
 return this.http.post<InterestResponse>(

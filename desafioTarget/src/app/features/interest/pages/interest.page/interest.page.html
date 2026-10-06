@@ -26,7 +26,7 @@ formControlName="dataVencimento">
 type="button"
 (click)="calculate()">
  
-Calcular
+Calcular Juros
  
 </button>
  
@@ -54,8 +54,8 @@ Juros:
 </p>
  
 <p>
-Valor Total:
-{{ result.valorTotal | currency:'BRL' }}
+Valor Final:
+{{ result.valorFinal | currency:'BRL' }}
 </p>
  
 }
