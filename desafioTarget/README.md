@@ -1,59 +1,68 @@
-# DesafioTarget
+# Desafio Target — Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.6.
+Aplicação web desenvolvida em Angular para consultar comissões, registrar movimentações de estoque e calcular juros. A interface consome uma API .NET executada separadamente; o backend não faz parte deste repositório.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- **Comissões:** consulta a lista de vendedores e exibe o total de comissão de cada um.
+- **Estoque:** permite selecionar um produto, informar o tipo e a quantidade da movimentação e enviar os dados para a API. A lista de produtos disponível na tela está no próprio frontend.
+- **Juros:** recebe um valor e uma data de vencimento e apresenta os dias de atraso, os juros e o valor final retornados pela API.
 
-```bash
-ng serve
-```
+## Tecnologias
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular 21
+- TypeScript
+- RxJS
+- Tailwind CSS 4
+- Vitest para testes unitários
 
-## Code scaffolding
+## Pré-requisitos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js e npm compatíveis com a versão do Angular utilizada pelo projeto.
+- A API .NET do desafio em execução, com HTTPS disponível em `https://localhost:7042`.
 
-```bash
-ng generate component component-name
-```
+## Instalação e execução
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+No diretório deste projeto, instale as dependências:
 
 ```bash
-ng build
+npm ci
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Inicie o servidor de desenvolvimento:
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+A aplicação estará disponível em [http://localhost:4200](http://localhost:4200). O servidor atualiza a página automaticamente quando os arquivos do projeto são alterados.
 
-For end-to-end (e2e) testing, run:
+## Integração com a API
+
+As URLs da API estão configuradas nos serviços do frontend e apontam para `https://localhost:7042`. Para usar as funcionalidades que consultam ou enviam dados, inicie a API e certifique-se de que o certificado HTTPS local é confiável no navegador.
+
+| Funcionalidade | Método | Endpoint |
+| --- | --- | --- |
+| Consultar comissões | `GET` | `/api/comissao` |
+| Registrar movimentação de estoque | `POST` | `/api/estoque/movimentar` |
+| Calcular juros | `POST` | `/api/Juros` |
+
+Se a API estiver hospedada em outro endereço, atualize as URLs nos serviços correspondentes do frontend.
+
+## Testes
+
+Execute os testes unitários com:
 
 ```bash
-ng e2e
+npm test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Build
 
-## Additional Resources
+Gere a versão de produção com:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run build
+```
+
+Os arquivos compilados são gerados no diretório `dist/`.
