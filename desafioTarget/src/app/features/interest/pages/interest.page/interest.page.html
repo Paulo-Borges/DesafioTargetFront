@@ -1,61 +1,56 @@
-<h2>Cálculo de Juros</h2>
- 
-<form [formGroup]="form">
- 
-<label>
-Valor
-</label>
- 
-<input
-type="number"
-formControlName="valor">
- 
-<br><br>
- 
-<label>
-Data de Vencimento
-</label>
- 
-<input
-type="date"
-formControlName="dataVencimento">
- 
-<br><br>
- 
-<button
-type="button"
-(click)="calculate()">
- 
-Calcular Juros
- 
-</button>
- 
-</form>
- 
-@if (result) {
- 
-<hr>
- 
-<h3>Resultado</h3>
- 
-<p>
-Valor Original:
-{{ result.valorOriginal | currency:'BRL' }}
-</p>
- 
-<p>
-Dias de Atraso:
-{{ result.diasAtraso }}
-</p>
- 
-<p>
-Juros:
-{{ result.juros | currency:'BRL' }}
-</p>
- 
-<p>
-Valor Final:
-{{ result.valorFinal | currency:'BRL' }}
-</p>
- 
-}
+<main class="bg-amber-200 flex flex-col">
+  <h2 class="bg-amber-200 flex flex-col justify-center items-center font-semibold text-xl">
+    Cálculo de Juros
+  </h2>
+   
+  <form [formGroup]="form">
+     
+    <label> Valor </label>
+     
+    <input type="number" formControlName="valor" class="border-2 rounded border-gray-300" />
+     
+    <br /><br />
+     
+    <label> Data de Vencimento </label>
+     
+    <input type="date" formControlName="dataVencimento" class="border-2 rounded border-gray-300" />
+     
+    <br /><br />
+     
+    <button
+      type="button"
+      class="bg-amber-300 hover:bg-amber-500 px-4 py-2 rounded"
+      (click)="calculate()"
+    >
+        Calcular Juros  
+    </button>
+     
+  </form>
+   
+  @if (result) {
+     
+    <hr />
+     
+    <h3>Resultado</h3>
+     
+    <p>
+      Valor Original:
+      {{ result.valorOriginal | currency: 'BRL' }}
+    </p>
+     
+    <p>
+      Dias de Atraso:
+      {{ result.diasAtraso }}
+    </p>
+     
+    <p>
+      Juros:
+      {{ result.juros | currency: 'BRL' }}
+    </p>
+     
+    <p>
+      Valor Final:
+      {{ result.valorFinal | currency: 'BRL' }}
+    </p>
+  }
+</main>

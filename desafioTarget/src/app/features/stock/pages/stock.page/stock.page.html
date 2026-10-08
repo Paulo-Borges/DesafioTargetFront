@@ -1,89 +1,75 @@
-<main class="bg-amber-200 flex flex-col ">
-
-<h2 class="bg-amber-200 flex flex-col justify-center items-center font-semibold text-xl">Movimentação de Estoque</h2>
- 
-<form [formGroup]="form">
- 
-<label>Produto</label>
- 
-<select formControlName="codigoProduto">
- 
-@for (product of products; track product.codigoProduto) {
- 
-<option [value]="product.codigoProduto">
- 
-{{ product.descricaoProduto }}
- 
-</option>
- 
-}
- 
-</select>
- 
-<br>
- 
-<label>Tipo</label>
- 
-<select formControlName="tipo">
-<option value="Entrada">
-Entrada
-</option>
- 
-<option value="Saida">
-Saída
-</option>
-</select>
- 
-<br>
- 
-<label>Quantidade</label>
- 
-<input
-type="number"
-formControlName="quantidade">
- 
-<br>
- 
-<label>Descrição</label>
- 
-<input
-type="text"
-formControlName="descricao">
- 
-<br><br>
- 
-<button
-class="bg-amber-300 hover:bg-amber-500 px-4 py-2 rounded "
-type="button"
-(click)="save()">
- 
-Movimentar
- 
-</button>
- 
-</form>
- 
-@if (response) {
- 
-<hr>
- 
-<h3 class="bg-amber-200 flex flex-col justify-center items-center font-semibold text-xl">Resultado</h3>
- 
-<p>
-ID: {{ response.id }}
-</p>
- 
-<p>
-Produto: {{ response.descricaoProduto }}
-</p>
- 
-<p>
-Tipo: {{ response.tipo }}
-</p>
- 
-<p>
-Estoque Final: {{ response.estoqueFinal }}
-</p>
- 
-}
+<main class="bg-amber-200 flex flex-col">
+  <h2 class="bg-amber-200 flex flex-col justify-center items-center font-semibold text-xl">
+    Movimentação de Estoque
+  </h2>
+   
+  <form [formGroup]="form">
+     
+    <label>Produto</label>
+     
+    <select formControlName="codigoProduto">
+       
+      @for (product of products; track product.codigoProduto) {
+         
+        <option [value]="product.codigoProduto">
+           
+          {{ product.descricaoProduto }}
+           
+        </option>
+         
+      }
+       
+    </select>
+     
+    <br />
+     
+    <label>Tipo</label>
+     
+    <select formControlName="tipo">
+      <option value="Entrada">Entrada</option>
+       
+      <option value="Saida">Saída</option>
+    </select>
+     
+    <br />
+     
+    <label>Quantidade</label>
+     
+    <input type="number" class="border-2 rounded border-gray-300" formControlName="quantidade" />
+     
+    <br />
+     
+    <label>Descrição</label>
+     
+    <input type="text" class="border-2 rounded border-gray-300" formControlName="descricao" />
+     
+    <br /><br />
+     
+    <button
+      class="bg-amber-300 hover:bg-amber-500 px-4 py-2 rounded"
+      type="button"
+      (click)="save()"
+    >
+        Movimentar  
+    </button>
+     
+  </form>
+   
+  @if (response) {
+     
+    <hr />
+     
+    <h3 class="bg-amber-200 flex flex-col justify-center items-center font-semibold text-xl">
+      Resultado
+    </h3>
+     
+    <p>ID: {{ response.id }}</p>
+     
+    <p>Produto: {{ response.descricaoProduto }}</p>
+     
+    <p>Tipo: {{ response.tipo }}</p>
+     
+    <p>Estoque Final: {{ response.estoqueFinal }}</p>
+     
+  }
 </main>

@@ -1,29 +1,29 @@
-<h2>Comissões</h2>
- 
-<p>Total de vendedores: {{ commissions.length }}</p>
- 
-<table>
-<thead>
-<tr>
-<th>Vendedor</th>
-<th>Comissão</th>
-</tr>
-</thead>
- 
-<tbody>
-@for (item of commissions; track item.vendedor) {
-<tr>
-<td>{{ item.vendedor }}</td>
-<td>
-{{ item.totalComissao | currency:'BRL':'symbol':'1.2-2' }}
-</td>
-</tr>
-} @empty {
-<tr>
-<td colspan="2">
-Nenhum registro encontrado
-</td>
-</tr>
-}
-</tbody>
-</table>
+<main class="bg-amber-200 flex flex-col pl-4">
+  <h2 class="flex flex-col justify-center items-center font-semibold text-xl">Comissões</h2>
+   
+  <p>Total de vendedores: {{ commissions.length }}</p>
+   
+  <table>
+    <thead>
+      <tr class="">
+        <th>Vendedor</th>
+        <th>Comissão</th>
+      </tr>
+    </thead>
+     
+    <tbody>
+      @for (item of commissions; track item.vendedor) {
+        <tr>
+          <td>{{ item.vendedor }}</td>
+          <td>
+            {{ item.totalComissao | currency: 'BRL' : 'symbol' : '1.2-2' }}
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="2">Nenhum registro encontrado</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</main>
